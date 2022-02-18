@@ -68,7 +68,14 @@ class Credentials:
             if details.userName == username:
                 return True
 
-        return False       
+        return False   
+
+    @classmethod
+    def disply_credentials(cls):
+        '''
+        method that returns our list
+        '''    
+        return cls.credential_list
 
 
     
