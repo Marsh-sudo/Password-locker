@@ -16,4 +16,11 @@ class User:
             save_user method saves contact objects into user_list
             '''
             User.user_list.append(self)
+
+
+class Credentials:
+    '''
+    credentials class that help in storing other user details.
+    '''
+    credential_list =[]
     
