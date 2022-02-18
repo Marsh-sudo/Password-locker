@@ -66,6 +66,12 @@ class TestCredentials(unittest.TestCase):
         self.new_credentials.save_credential() #saving the created  credential
         self.assertEqual(len(Credentials.credential_list),1)
 
+    def tearDown(self):
+            '''
+            tearDown method that does clean up after each test case
+            '''
+            Credentials.credential_list = []
+
     def test_save_multiple_credentials(self):
         '''
         test_save_multiple_credentials test case to test if can store many details.
