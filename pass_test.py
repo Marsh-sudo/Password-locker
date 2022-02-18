@@ -114,18 +114,5 @@ class TestCredentials(unittest.TestCase):
 
         self.assertEqual(found_credentials.username,test_details.email)
 
-    @classmethod
-    def find_by_username(cls,userName):
-            '''
-            method that takes in a userName and returns the username info
-
-            Args:
-               username:username to search for
-               Returns:
-                 Username of person that matches the username
-            '''
-
-            for username in cls.credential_list:
-                if username.userName == username:
-                    return username
+    
 
