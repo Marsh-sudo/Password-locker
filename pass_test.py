@@ -58,7 +58,14 @@ class TestCredentials(unittest.TestCase):
 
 
 
-        def test_save_credentials()
+    def test_save_credentials(self):
+        '''
+        test_save_credentials test case to test if the credentials created are save into
+        the credential list
+        '''
+        self.new_credentials.save_credential() #saving the created  credential
+        self.assertEqual(len(Credentials.credential_list),1)
+        
 
     
 
