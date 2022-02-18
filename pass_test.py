@@ -1,9 +1,10 @@
+from typing_extensions import Self
 import unittest
-from passlocker import User
+from passlocker import User,Credentials
 
 class TestPass(unittest.TestCase):
     '''
-    Test class that defines test cases for the contact class behaviours.
+    Test class that defines test cases for the user class behaviours.
 
     Args:
         unitest.TestCase:TestCase class that helps in creating test cases
@@ -30,3 +31,34 @@ class TestPass(unittest.TestCase):
         '''
         self.new_user.save_contact() #saving the user details
         self.assertEqual(len(User.user_list),1)
+
+
+
+class TestCredentials(unittest.TestCase):
+    '''
+    Test class that defines test cases for the credential class behaviours.
+
+    Args:
+        unitest.TestCase:TestCase class that helps in creating test cases
+    '''
+
+    def setUp(self):
+        '''
+        set up method to run before each test cases.
+        '''
+        self.new_credentials = Credentials("MarshKelvin","marsh10")
+
+
+    def test_init(self):
+        '''
+        test_init test case to test if the credentials are initalized properly
+        '''
+        self.assertEqual(self.new_credentials.userName,"MarshKelvin")
+        self.assertEqual(self.new_credentials.passWord,"marsh10")
+
+
+
+        def test_save_credentials()
+
+    
+
