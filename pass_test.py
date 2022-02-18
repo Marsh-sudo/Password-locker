@@ -1,4 +1,4 @@
-from typing_extensions import Self
+
 import unittest
 from passlocker import User,Credentials
 
@@ -80,6 +80,17 @@ class TestCredentials(unittest.TestCase):
         test_details = Credentials("kevo","kevo12")
         test_details.save_credentials()
         self.assertEqual(len(Credentials.credential_list),2)
+
+    def test_delete_credentials(self):
+        '''
+        test_delete_credentials to test if we can delete our credentials
+        '''
+        self.new_credentials.save_credentials()
+        test_details = Credentials("kevo","kevo12")
+        test_details.save_credentials()
+
+        self.new_credentials.delete_credentials() #deleting the credential objects
+        self.assertEqual(len(Credentials.credential_list),1)
 
     
 
