@@ -92,6 +92,7 @@ class TestCredentials(unittest.TestCase):
         self.new_credentials.delete_credentials() #deleting the credential objects
         self.assertEqual(len(Credentials.credential_list),1)
 
+      # correct test
 
     def delete_credentials(self):
         '''
@@ -114,5 +115,20 @@ class TestCredentials(unittest.TestCase):
 
         self.assertEqual(found_credentials.username,test_details.email)
 
-    
+    def test_credentials_exists(self):
+        '''
+        test to check if we can return a boolean if not found
+        '''
+
+        self.new_credentials.save_credentials()
+        test_details = Credentials("kevo","kevo12")
+        test_details.save_credentials()
+
+        credential_exists = Credentials.credential_exist("kevo")
+        self.assertTrue(credential_exists)
+
+        
+
+if __name__ == '__main__':
+    unittest.main()
 

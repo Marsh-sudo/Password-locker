@@ -54,4 +54,21 @@ class Credentials:
                 if detail.userName == username:
                     return detail
 
+    @classmethod
+    def credentials_exist(cls,username):
+        '''
+        method to see if credentials exist in the list
+        Args:
+           username:username to test if it exist
+
+        returns:
+          boolean:true or false depending if contact exist 
+        '''
+        for details in cls.credential_list:
+            if details.userName == username:
+                return True
+
+        return False       
+
+
     
