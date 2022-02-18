@@ -37,4 +37,21 @@ class Credentials:
             '''
 
             Credentials.credential_list.append(self)
+
+
+    @classmethod
+    def find_by_username(cls,username):
+            '''
+            method that takes in a userName and returns the username info
+
+            Args:
+               username:username to search for
+               Returns:
+                 Username of person that matches the username
+            '''
+
+            for detail in cls.credential_list:
+                if detail.userName == username:
+                    return detail
+
     
