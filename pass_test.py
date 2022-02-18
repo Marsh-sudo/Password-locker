@@ -101,4 +101,31 @@ class TestCredentials(unittest.TestCase):
         Credentials.credential_list.remove(self)
 
     
+    def test_find_credentials_by_username(self):
+        '''
+        test to see if we can find username and display its information
+        '''
+
+        self.new_credentials.save_credentials()
+        test_details = Credentials("kevo","kevo12")
+        test_details.save_credentials()
+
+        found_credentials = Credentials.find_by_username("kevo")
+
+        self.assertEqual(found_credentials.username,test_details.email)
+
+    @classmethod
+    def find_by_username(cls,userName):
+            '''
+            method that takes in a userName and returns the username info
+
+            Args:
+               username:username to search for
+               Returns:
+                 Username of person that matches the username
+            '''
+
+            for username in cls.credential_list:
+                if username.userName == username:
+                    return username
 
