@@ -50,3 +50,32 @@ def display_credentials():
     function that returns all the saved credentials
     '''
     return Credentials.disply_credentials()
+
+
+
+def main():
+    print("Hello.Welcome to your Credentials Centre.What is your name?")
+    name = input()
+
+    print(f"Hello {name}.What would you like to do?")
+    print('\n')
+
+    while True:
+        print("Use the short codes : To create account with Us!-cc, Already have an account?-ac")
+        short_code = input().lower()
+
+        if short_code == 'cc':
+            print("New User")
+            print("-"*10)
+
+            print("Usernmae...")
+            username = input()
+            password = ""
+
+            while True:
+                print("Use the codes to create password: To create password-tc,Randomly generate password-rp")
+                user_choice = input()
+                if user_choice == 'tc':
+                    password = input()
+                    
+                    break
