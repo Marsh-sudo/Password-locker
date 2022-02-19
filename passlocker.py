@@ -1,3 +1,4 @@
+import pyperclip
 class User:
     '''
     user class that generates new instances of the a user
@@ -24,12 +25,13 @@ class Credentials:
     '''
     credential_list =[]
 
-    def __init__(self,userName,passWord):
+    def __init__(self,account,userName,passWord):
         '''
         __init__ method defines properties of our existing credentials.
         '''
         self.userName = userName
         self.passWord = passWord
+        self.account = account
 
     def save_credentials(self):
             '''
@@ -76,6 +78,12 @@ class Credentials:
         method that returns our list
         '''    
         return cls.credential_list
+
+    
+    @classmethod
+    def copy_username(cls,account):
+        username_found = Credentials.find_by_account(account)
+        pyperclip.copy(username_found.userName)
 
 
     
