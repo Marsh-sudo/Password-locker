@@ -14,12 +14,13 @@ class TestPass(unittest.TestCase):
         '''
         set up method to run before each test cases.
         '''
-        self.new_user = User("Kelvin","kel0123") #create user object
+        self.new_user = User("Twitter","Kelvin","kel0123") #create user object
 
     def test_init(self):
         '''
         test_init test case to test if the object is initialized properly
         '''
+        self.assertEqual(self.new_user.account,"Twitter")
         self.assertEqual(self.new_user.user_name,"Kelvin")
         self.assertEqual(self.new_user.password,"kel0123")
     
