@@ -15,6 +15,7 @@ def save_users(user):
     '''
     user.save_user()
 
+
 #create new credentials
 def new_credentials(account,userName,password):
     '''
@@ -79,3 +80,25 @@ def main():
                     password = input()
                     
                     break
+
+                else:
+                    print('Must have password')
+            
+            save_users(create_users(username,password))
+            print('Heyy {username},Thanks for creating an account ;) Your password is:{password} ')
+
+        elif short_code == 'ac':
+            print('Welcome:)..Enter your username and password to login in:')
+            username = input()
+            password = input()
+            
+            enter = find_user(username,password)
+            if find_user == enter:
+                print(f'Hello {username} Happy to see you back!')
+
+            while True:
+                print('Use this short codes: Add new Credentials-CC,display Credential-DA,Delete Credentials-DC,Exit the App-EX')
+                short_code == input()
+                
+
+                
