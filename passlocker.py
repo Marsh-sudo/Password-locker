@@ -5,10 +5,11 @@ class User:
     '''
     user_list = []
 
-    def __init__(self,user_name,password):
+    def __init__(self,account,user_name,password):
         '''
         __init_method defines properties for our objects.
         '''
+        self.account = account
         self.user_name = user_name
         self.password = password
 
