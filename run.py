@@ -15,11 +15,19 @@ def save_users(user):
     '''
     user.save_user()
 
-def del_user(user):
+#create new credentials
+def new_credentials(account,userName,password):
+    '''
+    function that creates new user credentials
+    '''
+    new_details = Credentials(account,userName,password)
+    return new_details
+
+def del_user(credentials):
     '''
     function to delete a user
     '''
-    user.delete_user()
+    credentials.delete_user()
 
   #finding a user
 def find_user(username):
