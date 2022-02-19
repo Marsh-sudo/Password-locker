@@ -1,4 +1,4 @@
-
+import pyperclip
 import unittest
 from passlocker import User,Credentials
 
@@ -46,13 +46,14 @@ class TestCredentials(unittest.TestCase):
         '''
         set up method to run before each test cases.
         '''
-        self.new_credentials = Credentials("MarshKelvin","marsh10")
+        self.new_credentials = Credentials("Instagram","MarshKelvin","marsh10")
 
 
     def test_init(self):
         '''
         test_init test case to test if the credentials are initalized properly
         '''
+        self.assertEqual(self.new_credentials.account,"Instagram")
         self.assertEqual(self.new_credentials.userName,"MarshKelvin")
         self.assertEqual(self.new_credentials.passWord,"marsh10")
 
@@ -77,7 +78,7 @@ class TestCredentials(unittest.TestCase):
         test_save_multiple_credentials test case to test if can store many details.
         '''
         self.new_credentials.save_credentials()
-        test_details = Credentials("kevo","kevo12")
+        test_details = Credentials("Snap","kevo","kevo12")
         test_details.save_credentials()
         self.assertEqual(len(Credentials.credential_list),2)
 
@@ -86,7 +87,7 @@ class TestCredentials(unittest.TestCase):
         test_delete_credentials to test if we can delete our credentials
         '''
         self.new_credentials.save_credentials()
-        test_details = Credentials("kevo","kevo12")
+        test_details = Credentials("Snap","kevo","kevo12")
         test_details.save_credentials()
 
         self.new_credentials.delete_credentials() #deleting the credential objects
@@ -108,7 +109,7 @@ class TestCredentials(unittest.TestCase):
         '''
 
         self.new_credentials.save_credentials()
-        test_details = Credentials("kevo","kevo12")
+        test_details = Credentials("Snap","kevo","kevo12")
         test_details.save_credentials()
 
         found_credentials = Credentials.find_by_username("kevo")
@@ -121,7 +122,7 @@ class TestCredentials(unittest.TestCase):
         '''
 
         self.new_credentials.save_credentials()
-        test_details = Credentials("kevo","kevo12")
+        test_details = Credentials("Snap","kevo","kevo12")
         test_details.save_credentials()
 
         credential_exists = Credentials.credential_exist("kevo")
@@ -134,6 +135,18 @@ class TestCredentials(unittest.TestCase):
         '''
 
         self.assertEqual(Credentials.display_credentials(),Credentials.credential_list)
+
+
+    def test_copy_username(self):
+        '''
+        Test confirm that we are copying username from found account
+        '''
+
+        self.new_credentials.save_credentials()
+        Credentials.copy_username('Snap')
+
+        self.assertEqual(self.new_credentials.userName,pyperclip.paste())
+        
 
 if __name__ == '__main__':
     unittest.main()
