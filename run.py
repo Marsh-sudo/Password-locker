@@ -17,12 +17,18 @@ def save_users(user):
 
 
 #create new credentials
-def new_credentials(account,userName,password):
+def new_credentials(account,Username,password):
     '''
     function that creates new user credentials
     '''
-    new_details = Credentials(account,userName,password)
+    new_details = Credentials(account,Username,password)
     return new_details
+
+def save_details(credentials):
+    '''
+    function that save our new credentials
+    '''
+    credentials.save_details()
 
 def del_user(credentials):
     '''
@@ -97,8 +103,70 @@ def main():
                 print(f'Hello {username} Happy to see you back!')
 
             while True:
-                print('Use this short codes: Add new Credentials-CC,display Credential-DA,Delete Credentials-DC,Exit the App-EX')
+                print('Use this short codes: Add new Credentials-CC,display Credential-DA,Search Credentials-SC,Exit the App-EX')
                 short_code == input()
-                
+
+                if short_code == 'CC':
+                    print('New Credentials')
+
+                    print('Account...')
+                    acc_name = input()
+
+                    print('Username...')
+                    user_name = input()
+
+                    while True:
+                        print('Use codes: To create new password-tp,')
+                        pass_choice = input()
+                        if pass_choice == 'tp':
+                            passwordd = input()
+
+                            break
+                        else:
+                            print('Password Needed')
+
+                    save_details(new_credentials(username,password))
+                    print('\n')
+                    print(f'Account:{acc_name}, Username: {user_name}, Password: {passwordd} have been added to list')
+
+                elif short_code == 'DA':
+                    if display_credentials():
+                        print('Here are your credentials')
+                        print('\n')
+
+                        for detail in display_credentials():
+                            print(f'{detail.account} {detail.Username}....{detail.password}')
+                        
+                        print('\n')
+                    
+                    else:
+                        print('\n')
+                        print('Oops!!! seems you dont have any credentials')
+
+            
+                elif short_code == 'SC':
+                    print('Enter username you want to search;')
+
+                    search_detail = input()
+                    if check_existing_users(search_detail):
+                        search_user = find_user(search_detail)
+                        print(f'Account....{search_user.account}')
+                        print(f'Username....{search_user.Username}')
+                        print(f'Password....{search_user.password}')
+
+                    else :
+                        print("Ooops!! Invalid Credentials")
+
+                elif short_code == 'EX':
+                    print('Thank you for using Me....Adios!!')
+
+                    break
+                else:
+                    print("I really didn't understand your Command!!! Please use the short codes")
+                        
+
+
+
+
 
                 
