@@ -15,6 +15,13 @@ def save_users(user):
     '''
     user.save_user()
 
+def login_user(username,password):
+    '''
+    function to show if user exist
+    '''
+    user = User.exist_user(password,username)
+    return user
+
 
 #create new credentials
 def new_credentials(account,Username,password):
@@ -98,8 +105,8 @@ def main():
             username = input()
             password = input()
             
-            enter = find_user(username,password)
-            if find_user == enter:
+            exist = login_user(username,password)
+            if login_user == exist:
                 print(f'Hello {username} Happy to see you back!')
 
             while True:
@@ -162,7 +169,11 @@ def main():
 
                     break
                 else:
-                    print("I really didn't understand your Command!!! Please use the short codes")
+                    print("I really didn't understand your Command!!! Please use the short codes!")
+
+
+if __name__ == '__main__':
+    main()
                         
 
 
