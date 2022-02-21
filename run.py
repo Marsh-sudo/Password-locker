@@ -76,7 +76,7 @@ def main():
 
     while True:
         print("Use the short codes : To create account with Us!-cc, Already have an account?-ac")
-        short_code = input().lower()
+        short_code = input()
 
         if short_code == 'cc':
             print("New User")
