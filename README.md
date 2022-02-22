@@ -12,4 +12,4 @@ The project mainly uses Python extensively.
 CopyRights.
 munyao@2021
 
-<h3>MIT LICENSE</h3>
+<h3>MIT LICENSE.</h3>
